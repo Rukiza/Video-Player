@@ -14,7 +14,7 @@ public class LayoutTests {
 		JFrame frame = new JFrame();
 		
 		JPanel panel = new JPanel();
-		panel.setLayout(new ButtonLayout(new RandomStratagy()));
+		panel.setLayout(new ButtonLayout(new NonRandomStratagy()));
 		panel.add(new Button("Hello"));
 		panel.add(new Button("Jim"));
 		frame.add(panel);

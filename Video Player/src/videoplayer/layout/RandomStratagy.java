@@ -39,6 +39,19 @@ public class RandomStratagy implements ButtonLayoutStratagy {
 
 			int hgap = buttonLayout.getHgap();
 			int vgap = buttonLayout.getVgap();
+			
+			int prefWidth = 0;
+			int prefHight = 0;
+			
+			for (int i = 0; i < components.length; i++){
+				Dimension d = components[i].getPreferredSize();
+				if (d.width > prefWidth){
+					prefWidth = d.width;
+				}
+				if (d.height > prefHight){
+					prefHight = d.height;
+				}
+			}
 
 			// scaling factors
 			Dimension pd = buttonLayout.preferredLayoutSize(parent);
@@ -53,8 +66,8 @@ public class RandomStratagy implements ButtonLayoutStratagy {
 				int c = i % cols;
 				Component comp = components[i];
 				Dimension d = comp.getPreferredSize();
-				d.width = (int) (sw * d.width);
-				d.height = (int) (sh * d.height);
+				d.width = (int) (sw * prefWidth);
+				d.height = (int) (sh * prefHight);
 				if (w[c] < d.width) {
 					w[c] = d.width;
 				}
