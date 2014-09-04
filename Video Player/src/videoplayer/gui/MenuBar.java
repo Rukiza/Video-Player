@@ -1,4 +1,4 @@
-package gui;
+package videoplayer.gui;
 
 import javax.swing.JMenuBar;
 
