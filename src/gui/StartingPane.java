@@ -4,48 +4,58 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class StartingPane extends GridPane{
-	
-	public StartingPane (){
+public class StartingPane extends GridPane {
+
+	public StartingPane() {
 		this.setAlignment(Pos.CENTER);
 		this.setHgap(10);
 		this.setVgap(10);
 		this.setPadding(new Insets(25, 25, 25, 25));
 		
-		Text scenetitle = new Text("Welcome");
-		scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-		this.add(scenetitle, 0, 0, 2, 1);
-
-		Label userName = new Label("First Name:");
-		this.add(userName, 0, 1);
-
-		TextField userTextField = new TextField();
-		this.add(userTextField, 1, 1);
-
-		Label pw = new Label("Last Name:");
-		this.add(pw, 0, 2);
-
-		TextField pwBox = new TextField();
-		this.add(pwBox, 1, 2);
+		Text scenetitle = new Text("Video Player");
+		scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 50));
+		this.add(scenetitle, 0, 0, 2, 2);
 		
-		Button btn = new Button();
-		btn.setText("Make User");
-		btn.setOnAction(new EventHandler<ActionEvent>() {
-			
+		// Creates a user create button
+		this.add(makeButton("Create User", new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				//TODO: Add some interaction
+				VideoApplication.setStage(new Scene(new CreateUserPane(),
+						VideoApplication.height, VideoApplication.width));
 			}
-		});
-		btn.setAlignment(Pos.BOTTOM_RIGHT);
-		this.add(btn, 1, 3);
+		}), 0, 2);
+
+		// Make a button that takes you to the use existing
+		// user menu
+		this.add(makeButton("Use Existing", new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO: Add Selecting an existing user panel
+			}
+		}), 1, 2);
+	}
+
+	/**
+	 * Used for making button on the pane.
+	 * 
+	 * @param name
+	 *            - name of the button.
+	 * @param handler
+	 *            - the event handler for when the button is pressed
+	 * @return - returns a newly made button
+	 */
+	private Button makeButton(String name, EventHandler<ActionEvent> handler) {
+		Button btn = new Button();
+		btn.setText(name);
+		btn.setOnAction(handler);
+		btn.setMaxWidth(Double.MAX_VALUE);
+		return btn;
 	}
 }
