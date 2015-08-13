@@ -52,7 +52,7 @@ public class CreateUserPane extends GridPane {
 			@Override
 			public void handle(ActionEvent arg0) {
 				VideoApplication.setStage(new Scene(new StartingPane(),
-						VideoApplication.height, VideoApplication.width));
+						VideoApplication.width, VideoApplication.height));
 			}
 		}), 0, 3);
 	}

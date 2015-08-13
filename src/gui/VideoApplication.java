@@ -14,8 +14,8 @@ public class VideoApplication extends Application {
 	public void start(Stage stage) throws Exception {
 		primaryStage = stage;
 		StartingPane startingPane = new StartingPane();
-		primaryStage.setScene(new Scene(startingPane, VideoApplication.height,
-				VideoApplication.width));
+		primaryStage.setScene(new Scene(startingPane, VideoApplication.width,
+				VideoApplication.height));
 		primaryStage.show();
 	}
 
