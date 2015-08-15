@@ -14,6 +14,7 @@ public class VideoApplication extends Application {
 	public static final double height = 400;
 	public static final double width = 400;
 
+	//All users that can be logged on to.
 	private List<User> userList;
 
 

@@ -19,10 +19,11 @@ public class StartingPane extends GridPane {
 		this.setVgap(10);
 		this.setPadding(new Insets(25, 25, 25, 25));
 		
-		Text scenetitle = new Text("Video Player");
-		scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 50));
-		this.add(scenetitle, 0, 0, 2, 2);
-		
+		Text sceneTitle = new Text("Video Player");
+		sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 50));
+		this.add(sceneTitle, 0, 0, 2, 2);
+
+		//TODO: Convert to lambda function if applicable.
 		// Creates a user create button
 		this.add(makeButton("Create User", new EventHandler<ActionEvent>() {
 			@Override
@@ -32,6 +33,7 @@ public class StartingPane extends GridPane {
 			}
 		}), 0, 2);
 
+		//TODO: Convert to lambda function if applicable.
 		// Make a button that takes you to the use existing
 		// user menu
 		this.add(makeButton("Use Existing", new EventHandler<ActionEvent>() {
